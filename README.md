@@ -1,3 +1,5 @@
+![Board Schematic](./Schematic.png)
+
 # FPGA Reaction Timer
 
 ## Overview
