@@ -1,4 +1,4 @@
-![Board Schematic](./Schematic.png)
+![Board Schematic](./schematic.png)
 
 # FPGA Reaction Timer
 
