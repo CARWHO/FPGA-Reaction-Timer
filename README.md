@@ -6,7 +6,7 @@
 
 This was my first FPGA project, chosen to help me understand core digital design concepts—including ALUs, PRNGs, synchronous and asynchronous behavior, input debouncing—and to develop finite‑state machine implementations.
 
-This project implements a reaction-time tester on a Digilent Nexys‑4 DDR FPGA board using VHDL. It measures how quickly a user responds to a visual prompt and displays the result on the seven-segment displays.
+This project implements a reaction-time tester on a Digilent Nexys‑4 DDR FPGA board using VHDL (and was designed for ARTY A7 Devboard). It measures how quickly a user responds to a visual prompt and displays the result on the seven-segment displays.
 
 ## Core Features
 
