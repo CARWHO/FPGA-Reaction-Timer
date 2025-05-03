@@ -1,0 +1,348 @@
+
+*** Running vivado
+    with args -log Display_Controller_ms.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source Display_Controller_ms.tcl
+
+
+
+****** Vivado v2022.2 (64-bit)
+  **** SW Build 3671981 on Fri Oct 14 05:00:03 MDT 2022
+  **** IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+source Display_Controller_ms.tcl -notrace
+create_project: Time (s): cpu = 00:00:03 ; elapsed = 00:00:12 . Memory (MB): peak = 409.984 ; gain = 84.645
+Command: read_checkpoint -auto_incremental -incremental D:/ThuGroup7/NewRefactoredCode/RT_vivadoProject/RT_vivadoProject.srcs/utils_1/imports/synth_1/Second_Module_Display_counter.dcp
+INFO: [Vivado 12-5825] Read reference checkpoint from D:/ThuGroup7/NewRefactoredCode/RT_vivadoProject/RT_vivadoProject.srcs/utils_1/imports/synth_1/Second_Module_Display_counter.dcp for incremental synthesis
+INFO: [Vivado 12-7989] Please ensure there are no constraint changes
+Command: synth_design -top Display_Controller_ms -part xc7a100tcsg324-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Device 21-403] Loading part xc7a100tcsg324-1
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 5560
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [D:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:11 . Memory (MB): peak = 1235.422 ; gain = 408.121
+---------------------------------------------------------------------------------
+CRITICAL WARNING: [Synth 8-9871] overwriting existing primary unit 'snapshot_capture' [D:/ThuGroup7/NewRefactoredCode/RT_vivadoProject/RT_vivadoProject.srcs/sources_1/new/snapshot_capture.vhd:48]
+INFO: [Synth 8-638] synthesizing module 'Display_Controller_ms' [D:/ThuGroup7/NewRefactoredCode/RT_vivadoProject/RT_vivadoProject.srcs/sources_1/new/Display_Controller.vhd:35]
+INFO: [Synth 8-638] synthesizing module 'clock_divider' [D:/ThuGroup7/NewRefactoredCode/RT_vivadoProject/RT_vivadoProject.srcs/sources_1/new/clock_divider.vhd:11]
+INFO: [Synth 8-256] done synthesizing module 'clock_divider' (0#1) [D:/ThuGroup7/NewRefactoredCode/RT_vivadoProject/RT_vivadoProject.srcs/sources_1/new/clock_divider.vhd:11]
+INFO: [Synth 8-638] synthesizing module 'PRNG' [D:/ThuGroup7/NewRefactoredCode/RT_vivadoProject/RT_vivadoProject.srcs/sources_1/new/PRNG.vhd:16]
+INFO: [Synth 8-256] done synthesizing module 'PRNG' (0#1) [D:/ThuGroup7/NewRefactoredCode/RT_vivadoProject/RT_vivadoProject.srcs/sources_1/new/PRNG.vhd:16]
+INFO: [Synth 8-638] synthesizing module 'button_handler' [D:/ThuGroup7/NewRefactoredCode/RT_vivadoProject/RT_vivadoProject.srcs/sources_1/new/button_handler.vhd:27]
+INFO: [Synth 8-638] synthesizing module 'debounce' [D:/ThuGroup7/NewRefactoredCode/RT_vivadoProject/RT_vivadoProject.srcs/sources_1/new/debounce.vhd:14]
+INFO: [Synth 8-256] done synthesizing module 'debounce' (0#1) [D:/ThuGroup7/NewRefactoredCode/RT_vivadoProject/RT_vivadoProject.srcs/sources_1/new/debounce.vhd:14]
+INFO: [Synth 8-256] done synthesizing module 'button_handler' (0#1) [D:/ThuGroup7/NewRefactoredCode/RT_vivadoProject/RT_vivadoProject.srcs/sources_1/new/button_handler.vhd:27]
+INFO: [Synth 8-638] synthesizing module 'timing_fsm' [D:/ThuGroup7/NewRefactoredCode/RT_vivadoProject/RT_vivadoProject.srcs/sources_1/new/timing_fsm.vhd:54]
+INFO: [Synth 8-256] done synthesizing module 'timing_fsm' (0#1) [D:/ThuGroup7/NewRefactoredCode/RT_vivadoProject/RT_vivadoProject.srcs/sources_1/new/timing_fsm.vhd:54]
+INFO: [Synth 8-638] synthesizing module 'reaction_time_storage' [D:/ThuGroup7/NewRefactoredCode/RT_vivadoProject/RT_vivadoProject.srcs/sources_1/new/reaction_time_storage.vhd:38]
+INFO: [Synth 8-256] done synthesizing module 'reaction_time_storage' (0#1) [D:/ThuGroup7/NewRefactoredCode/RT_vivadoProject/RT_vivadoProject.srcs/sources_1/new/reaction_time_storage.vhd:38]
+INFO: [Synth 8-638] synthesizing module 'statistics_alu' [D:/ThuGroup7/NewRefactoredCode/RT_vivadoProject/RT_vivadoProject.srcs/sources_1/new/statistics_alu.vhd:44]
+INFO: [Synth 8-256] done synthesizing module 'statistics_alu' (0#1) [D:/ThuGroup7/NewRefactoredCode/RT_vivadoProject/RT_vivadoProject.srcs/sources_1/new/statistics_alu.vhd:44]
+INFO: [Synth 8-638] synthesizing module 'Ones_counter' [D:/ThuGroup7/NewRefactoredCode/RT_vivadoProject/RT_vivadoProject.srcs/sources_1/new/bcd_counter_ones_ms.vhd:17]
+INFO: [Synth 8-256] done synthesizing module 'Ones_counter' (0#1) [D:/ThuGroup7/NewRefactoredCode/RT_vivadoProject/RT_vivadoProject.srcs/sources_1/new/bcd_counter_ones_ms.vhd:17]
+INFO: [Synth 8-638] synthesizing module 'Tens_Counter' [D:/ThuGroup7/NewRefactoredCode/RT_vivadoProject/RT_vivadoProject.srcs/sources_1/new/bcd_counter_tens_ms.vhd:19]
+INFO: [Synth 8-256] done synthesizing module 'Tens_Counter' (0#1) [D:/ThuGroup7/NewRefactoredCode/RT_vivadoProject/RT_vivadoProject.srcs/sources_1/new/bcd_counter_tens_ms.vhd:19]
+INFO: [Synth 8-638] synthesizing module 'Hundreds_counter' [D:/ThuGroup7/NewRefactoredCode/RT_vivadoProject/RT_vivadoProject.srcs/sources_1/new/bcd_counter_hundreds_ms.vhd:19]
+INFO: [Synth 8-256] done synthesizing module 'Hundreds_counter' (0#1) [D:/ThuGroup7/NewRefactoredCode/RT_vivadoProject/RT_vivadoProject.srcs/sources_1/new/bcd_counter_hundreds_ms.vhd:19]
+INFO: [Synth 8-638] synthesizing module 'Thousands_Counter' [D:/ThuGroup7/NewRefactoredCode/RT_vivadoProject/RT_vivadoProject.srcs/sources_1/new/bcd_counter_seconds.vhd:19]
+INFO: [Synth 8-256] done synthesizing module 'Thousands_Counter' (0#1) [D:/ThuGroup7/NewRefactoredCode/RT_vivadoProject/RT_vivadoProject.srcs/sources_1/new/bcd_counter_seconds.vhd:19]
+INFO: [Synth 8-638] synthesizing module 'snapshot_capture' [D:/ThuGroup7/NewRefactoredCode/RT_vivadoProject/RT_vivadoProject.srcs/sources_1/new/snapshot_capture.vhd:67]
+INFO: [Synth 8-256] done synthesizing module 'snapshot_capture' (0#1) [D:/ThuGroup7/NewRefactoredCode/RT_vivadoProject/RT_vivadoProject.srcs/sources_1/new/snapshot_capture.vhd:67]
+INFO: [Synth 8-638] synthesizing module 'display_mux' [D:/ThuGroup7/NewRefactoredCode/RT_vivadoProject/RT_vivadoProject.srcs/sources_1/new/display_mux.vhd:50]
+INFO: [Synth 8-226] default block is never used [D:/ThuGroup7/NewRefactoredCode/RT_vivadoProject/RT_vivadoProject.srcs/sources_1/new/display_mux.vhd:89]
+INFO: [Synth 8-226] default block is never used [D:/ThuGroup7/NewRefactoredCode/RT_vivadoProject/RT_vivadoProject.srcs/sources_1/new/display_mux.vhd:98]
+INFO: [Synth 8-226] default block is never used [D:/ThuGroup7/NewRefactoredCode/RT_vivadoProject/RT_vivadoProject.srcs/sources_1/new/display_mux.vhd:111]
+INFO: [Synth 8-638] synthesizing module 'bcd_to_7_seg' [D:/ThuGroup7/NewRefactoredCode/RT_vivadoProject/RT_vivadoProject.srcs/sources_1/new/bcd_to_7_seg.vhd:12]
+INFO: [Synth 8-256] done synthesizing module 'bcd_to_7_seg' (0#1) [D:/ThuGroup7/NewRefactoredCode/RT_vivadoProject/RT_vivadoProject.srcs/sources_1/new/bcd_to_7_seg.vhd:12]
+INFO: [Synth 8-226] default block is never used [D:/ThuGroup7/NewRefactoredCode/RT_vivadoProject/RT_vivadoProject.srcs/sources_1/new/display_mux.vhd:158]
+INFO: [Synth 8-638] synthesizing module 'Four_Digit_Anode_driver' [D:/ThuGroup7/NewRefactoredCode/RT_vivadoProject/RT_vivadoProject.srcs/sources_1/new/anode_driver_4digit.vhd:11]
+INFO: [Synth 8-226] default block is never used [D:/ThuGroup7/NewRefactoredCode/RT_vivadoProject/RT_vivadoProject.srcs/sources_1/new/anode_driver_4digit.vhd:15]
+INFO: [Synth 8-256] done synthesizing module 'Four_Digit_Anode_driver' (0#1) [D:/ThuGroup7/NewRefactoredCode/RT_vivadoProject/RT_vivadoProject.srcs/sources_1/new/anode_driver_4digit.vhd:11]
+INFO: [Synth 8-256] done synthesizing module 'display_mux' (0#1) [D:/ThuGroup7/NewRefactoredCode/RT_vivadoProject/RT_vivadoProject.srcs/sources_1/new/display_mux.vhd:50]
+INFO: [Synth 8-638] synthesizing module 'led_controller' [D:/ThuGroup7/NewRefactoredCode/RT_vivadoProject/RT_vivadoProject.srcs/sources_1/new/led_controller.vhd:19]
+INFO: [Synth 8-256] done synthesizing module 'led_controller' (0#1) [D:/ThuGroup7/NewRefactoredCode/RT_vivadoProject/RT_vivadoProject.srcs/sources_1/new/led_controller.vhd:19]
+INFO: [Synth 8-256] done synthesizing module 'Display_Controller_ms' (0#1) [D:/ThuGroup7/NewRefactoredCode/RT_vivadoProject/RT_vivadoProject.srcs/sources_1/new/Display_Controller.vhd:35]
+WARNING: [Synth 8-3917] design Display_Controller_ms has port AN[7] driven by constant 1
+WARNING: [Synth 8-3917] design Display_Controller_ms has port AN[6] driven by constant 1
+WARNING: [Synth 8-3917] design Display_Controller_ms has port AN[5] driven by constant 1
+WARNING: [Synth 8-3917] design Display_Controller_ms has port AN[4] driven by constant 1
+WARNING: [Synth 8-7129] Port stat_valid in module display_mux is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:16 . Memory (MB): peak = 1333.504 ; gain = 506.203
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:16 . Memory (MB): peak = 1333.504 ; gain = 506.203
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:16 . Memory (MB): peak = 1333.504 ; gain = 506.203
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.033 . Memory (MB): peak = 1333.504 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [D:/ThuGroup7/NewRefactoredCode/RT_vivadoProject/RT_vivadoProject.srcs/constrs_1/imports/Desktop/Nexys-4-DDR-Master.xdc]
+Finished Parsing XDC File [D:/ThuGroup7/NewRefactoredCode/RT_vivadoProject/RT_vivadoProject.srcs/constrs_1/imports/Desktop/Nexys-4-DDR-Master.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [D:/ThuGroup7/NewRefactoredCode/RT_vivadoProject/RT_vivadoProject.srcs/constrs_1/imports/Desktop/Nexys-4-DDR-Master.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/Display_Controller_ms_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/Display_Controller_ms_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1385.996 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.031 . Memory (MB): peak = 1385.996 ; gain = 0.000
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [D:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:09 ; elapsed = 00:00:33 . Memory (MB): peak = 1385.996 ; gain = 558.695
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a100tcsg324-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:09 ; elapsed = 00:00:33 . Memory (MB): peak = 1385.996 ; gain = 558.695
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:09 ; elapsed = 00:00:33 . Memory (MB): peak = 1385.996 ; gain = 558.695
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:36 . Memory (MB): peak = 1385.996 ; gain = 558.695
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   16 Bit       Adders := 1     
+	   2 Input   15 Bit       Adders := 2     
+	   2 Input    4 Bit       Adders := 36    
+	   2 Input    3 Bit       Adders := 1     
+	   2 Input    2 Bit       Adders := 2     
++---XORs : 
+	   4 Input      1 Bit         XORs := 1     
++---Registers : 
+	               16 Bit    Registers := 6     
+	               14 Bit    Registers := 1     
+	                6 Bit    Registers := 1     
+	                4 Bit    Registers := 9     
+	                2 Bit    Registers := 2     
+	                1 Bit    Registers := 30    
++---Muxes : 
+	   2 Input   16 Bit        Muxes := 2     
+	   4 Input   15 Bit        Muxes := 1     
+	   2 Input   15 Bit        Muxes := 2     
+	   2 Input   14 Bit        Muxes := 8     
+	   4 Input   14 Bit        Muxes := 3     
+	   5 Input    4 Bit        Muxes := 1     
+	   2 Input    4 Bit        Muxes := 39    
+	   6 Input    4 Bit        Muxes := 3     
+	   4 Input    4 Bit        Muxes := 4     
+	   2 Input    3 Bit        Muxes := 4     
+	   4 Input    3 Bit        Muxes := 1     
+	   2 Input    2 Bit        Muxes := 2     
+	   2 Input    1 Bit        Muxes := 11    
+	  12 Input    1 Bit        Muxes := 12    
+	   4 Input    1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 240 (col length:80)
+BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+DSP Report: Generating DSP target_delay_prompt3, operation Mode is: (C:0x5f5e100)+(A:0x989680)*B2.
+DSP Report: register sampled_random_6bit_reg is absorbed into DSP target_delay_prompt3.
+DSP Report: operator target_delay_prompt3 is absorbed into DSP target_delay_prompt3.
+DSP Report: operator target_delay_prompt30 is absorbed into DSP target_delay_prompt3.
+WARNING: [Synth 8-3917] design Display_Controller_ms has port AN[7] driven by constant 1
+WARNING: [Synth 8-3917] design Display_Controller_ms has port AN[6] driven by constant 1
+WARNING: [Synth 8-3917] design Display_Controller_ms has port AN[5] driven by constant 1
+WARNING: [Synth 8-3917] design Display_Controller_ms has port AN[4] driven by constant 1
+WARNING: [Synth 8-7129] Port stat_valid in module display_mux is either unconnected or has no load
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin clear_times with 1st driver pin 'fsm_inst/clear_times_reg/Q' [D:/ThuGroup7/NewRefactoredCode/RT_vivadoProject/RT_vivadoProject.srcs/sources_1/new/timing_fsm.vhd:408]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin clear_times with 2nd driver pin 'GND' [D:/ThuGroup7/NewRefactoredCode/RT_vivadoProject/RT_vivadoProject.srcs/sources_1/new/timing_fsm.vhd:408]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net clear_times is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ThuGroup7/NewRefactoredCode/RT_vivadoProject/RT_vivadoProject.srcs/sources_1/new/timing_fsm.vhd:408]
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:16 ; elapsed = 00:00:53 . Memory (MB): peak = 1385.996 ; gain = 558.695
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+DSP: Preliminary Mapping Report (see note below. The ' indicates corresponding REG is set)
++------------+-------------------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name | DSP Mapping                   | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++------------+-------------------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|timing_fsm  | (C:0x5f5e100)+(A:0x989680)*B2 | 24     | 6      | 27     | -      | 30     | 0    | 1    | 0    | -    | -     | 0    | 0    | 
++------------+-------------------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:23 ; elapsed = 00:01:09 . Memory (MB): peak = 1385.996 ; gain = 558.695
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:25 ; elapsed = 00:01:15 . Memory (MB): peak = 1499.777 ; gain = 672.477
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:26 ; elapsed = 00:01:16 . Memory (MB): peak = 1500.863 ; gain = 673.562
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:29 ; elapsed = 00:01:21 . Memory (MB): peak = 1501.641 ; gain = 674.340
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:29 ; elapsed = 00:01:21 . Memory (MB): peak = 1501.641 ; gain = 674.340
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:29 ; elapsed = 00:01:21 . Memory (MB): peak = 1501.641 ; gain = 674.340
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:29 ; elapsed = 00:01:21 . Memory (MB): peak = 1501.641 ; gain = 674.340
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:29 ; elapsed = 00:01:21 . Memory (MB): peak = 1501.641 ; gain = 674.340
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:29 ; elapsed = 00:01:21 . Memory (MB): peak = 1501.641 ; gain = 674.340
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Static Shift Register Report:
++----------------------+----------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+|Module Name           | RTL Name                   | Length | Width | Reset Signal | Pull out first Reg | Pull out last Reg | SRL16E | SRLC32E | 
++----------------------+----------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+|Display_Controller_ms | prng_inst/lfsr_reg_reg[10] | 5      | 1     | NO           | NO                 | YES               | 1      | 0       | 
++----------------------+----------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+DSP Final Report (the ' indicates corresponding REG is set)
++------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name | DSP Mapping | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|timing_fsm  | C+A*B'      | 24     | 6      | 27     | -      | 30     | 0    | 1    | 1    | -    | -     | 0    | 0    | 
++------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+--------+------+
+|      |Cell    |Count |
++------+--------+------+
+|1     |BUFG    |     1|
+|2     |CARRY4  |   154|
+|3     |DSP48E1 |     1|
+|4     |LUT1    |    39|
+|5     |LUT2    |   125|
+|6     |LUT3    |    63|
+|7     |LUT4    |   229|
+|8     |LUT5    |    79|
+|9     |LUT6    |   231|
+|10    |MUXF7   |     2|
+|11    |SRL16E  |     1|
+|12    |FDRE    |   313|
+|13    |IBUF    |     6|
+|14    |OBUF    |    32|
++------+--------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:29 ; elapsed = 00:01:21 . Memory (MB): peak = 1501.641 ; gain = 674.340
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 3 critical warnings and 6 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:24 ; elapsed = 00:01:15 . Memory (MB): peak = 1501.641 ; gain = 621.848
+Synthesis Optimization Complete : Time (s): cpu = 00:00:29 ; elapsed = 00:01:21 . Memory (MB): peak = 1501.641 ; gain = 674.340
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.019 . Memory (MB): peak = 1513.641 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 157 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1517.355 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete, checksum: 9d8c6209
+INFO: [Common 17-83] Releasing license: Synthesis
+62 Infos, 11 Warnings, 4 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:31 ; elapsed = 00:01:44 . Memory (MB): peak = 1517.355 ; gain = 1082.473
+INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
+INFO: [Common 17-1381] The checkpoint 'D:/ThuGroup7/NewRefactoredCode/RT_vivadoProject/RT_vivadoProject.runs/synth_1/Display_Controller_ms.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file Display_Controller_ms_utilization_synth.rpt -pb Display_Controller_ms_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Fri May  2 18:23:25 2025...

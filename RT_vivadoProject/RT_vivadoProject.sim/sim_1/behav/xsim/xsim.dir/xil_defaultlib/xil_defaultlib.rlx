@@ -1,0 +1,17 @@
+0.7
+2020.2
+Oct 14 2022
+05:20:55
+C:/Users/OKH20/enel373/ENEL373/Lab2/M2/project_2/project_2.srcs/sim_1/new/bcd_to_7_seg_tb.vhd,1740708096,vhdl,,,,bcd_to_7_seg_tb,,,,,,,,
+C:/Users/OKH20/enel373/ENEL373/Lab2/M2/project_2/project_2.srcs/sim_1/new/tb_Display_Controller.vhd,1740802773,vhdl,,,,tb_top_level_display_controller,,,,,,,,
+C:/Users/OKH20/enel373/ENEL373/Lab2/M2/project_2/project_2.srcs/sim_1/new/tb_Tens_Counter.vhd,1740718620,vhdl,,,,tb_Tens_Counter,,,,,,,,
+C:/Users/OKH20/enel373/ENEL373/Lab2/M2/project_2/project_2.srcs/sim_1/new/tb_Hundreds_counter.vhd,1740715527,vhdl,,,,tb_Hundreds_counter,,,,,,,,
+C:/Users/OKH20/enel373/ENEL373/Lab2/M2/project_2/project_2.srcs/sim_1/new/tb_Four_Digit_Anode_driver.vhd,1740717123,vhdl,,,,tb_Four_Digit_Anode_driver,,,,,,,,
+C:/Users/OKH20/enel373/ENEL373/Lab2/M2/project_2/project_2.srcs/sim_1/new/tb_timing_fsm.vhd,1741224478,vhdl,,,,timing_fsm_tb,,,,,,,,
+C:/Users/OKH20/enel373/ENEL373/Lab2/M2/project_2/project_2.srcs/sources_1/imports/Desktop/Hundreds_counter.vhd,1740715408,vhdl,C:/Users/OKH20/enel373/ENEL373/Lab2/M2/project_2/project_2.srcs/sources_1/new/Display_Controller.vhd,,,Hundreds_counter,,,,,,,,
+C:/Users/OKH20/enel373/ENEL373/Lab2/M2/project_2/project_2.srcs/sources_1/imports/Desktop/bcd_to_7_seg.vhd,1740707024,vhdl,C:/Users/OKH20/enel373/ENEL373/Lab2/M2/project_2/project_2.srcs/sources_1/new/Display_Controller.vhd,,,bcd_to_7_seg,,,,,,,,
+C:/Users/OKH20/enel373/ENEL373/Lab2/M2/project_2/project_2.srcs/sources_1/imports/new/clock_divider.vhd,1740714283,vhdl,C:/Users/OKH20/enel373/ENEL373/Lab2/M2/project_2/project_2.srcs/sources_1/new/Display_Controller.vhd,,,clock_divider,,,,,,,,
+C:/Users/OKH20/enel373/ENEL373/Lab2/M2/project_2/project_2.srcs/sources_1/new/Display_Controller.vhd,1740800828,vhdl,C:/Users/OKH20/enel373/ENEL373/Lab2/M2/project_2/project_2.srcs/sim_1/new/tb_Display_Controller.vhd,,,top_level_display_controller,,,,,,,,
+C:/Users/OKH20/enel373/ENEL373/Lab2/M2/project_2/project_2.srcs/sources_1/new/Tens_Counter.vhd,1740718536,vhdl,,,,Tens_Counter,,,,,,,,
+C:/Users/OKH20/enel373/ENEL373/Lab2/M2/project_2/project_2.srcs/sources_1/new/Four_Digit_Anode_driver.vhd,1740717075,vhdl,C:/Users/OKH20/enel373/ENEL373/Lab2/M2/project_2/project_2.srcs/sources_1/new/Display_Controller.vhd,,,Four_Digit_Anode_driver,,,,,,,,
+C:/Users/OKH20/enel373/ENEL373/Lab2/M2/project_2/project_2.srcs/sources_1/new/timing_fsm.vhd,1741224413,vhdl,C:/Users/OKH20/enel373/ENEL373/Lab2/M2/project_2/project_2.srcs/sim_1/new/tb_timing_fsm.vhd,,,timing_fsm,,,,,,,,
