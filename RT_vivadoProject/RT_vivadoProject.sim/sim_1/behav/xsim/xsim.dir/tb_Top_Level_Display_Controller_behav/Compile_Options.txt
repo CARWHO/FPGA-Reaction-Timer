@@ -1,1 +1,0 @@
---incr --debug "typical" --relax --mt "2" -L "xil_defaultlib" -L "secureip" --snapshot "tb_Top_Level_Display_Controller_behav" "xil_defaultlib.tb_Top_Level_Display_Controller" -log "elaborate.log" 

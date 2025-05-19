@@ -1,7 +1,0 @@
-Running: xsim.dir/tb_Four_Digit_Anode_driver_behav/xsimk.exe -simmode gui -wdb tb_Four_Digit_Anode_driver_behav.wdb -simrunnum 0 -socket 57623
-Design successfully loaded
-Design Loading Memory Usage: 9920 KB (Peak: 9920 KB)
-Design Loading CPU Usage: 62 ms
-Simulation completed
-Simulation Memory Usage: 10460 KB (Peak: 10460 KB)
-Simulation CPU Usage: 62 ms

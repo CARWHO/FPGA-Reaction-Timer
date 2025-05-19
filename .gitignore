@@ -1,1 +1,7 @@
-
+.aider*
+# Vivado auto-generat
+*.cache/
+*.hw/
+*.ip_user_files/
+*.runs/
+*.sim/

@@ -29,7 +29,6 @@ entity statistics_alu is
         op_avg         : in std_logic;  -- Calculate average
         op_min         : in std_logic;  -- Find minimum
         op_max         : in std_logic;  -- Find maximum
-        reset          : in std_logic;  -- Added reset input
         
         -- Result output in BCD
         result_thousands : out std_logic_vector(3 downto 0);
@@ -233,22 +232,19 @@ begin
                 -- Two times (divide by 2 = shift right by 1)
                 avg_result <= sum_times(14 downto 1);
             when others =>
-                -- Three times (approximate division by 3)
-                -- Multiply by 85/256 ≈ 1/3
-                -- This is an approximation that works well for our range
-                avg_result <= sum_times(13 downto 0) / 3;
+                -- Three times (divide by 3 using integer division)
+                -- The sum_times is 16 bits, but individual times are 14 bits.
+                -- Max sum of 3 times (each max 9999) is 29997.
+                -- The result of division by 3 will fit in 14 bits.
+                avg_result <= sum_times(13 downto 0) / 3; -- Integer division
             end case;
     end process;
     
-    -- Select result based on operation, with synchronous reset priority
+    -- Select result based on operation
     process(clk)
     begin
         if rising_edge(clk) then
-            if reset = '1' then
-                -- Prioritize reset: Force output to 0
-                result_binary <= (others => '0');
-                result_valid  <= '0';
-            elsif op_avg = '1' then
+            if op_avg = '1' then
                 result_binary <= avg_result;
                 if unsigned(valid_count) > 0 then
                     result_valid <= '1';

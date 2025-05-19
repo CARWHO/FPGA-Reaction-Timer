@@ -1,4 +1,0 @@
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/OKH20/enel373/ENEL373/Lab2/M2/project_2/project_2.srcs/sources_1/new/timing_fsm.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'timing_fsm'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/OKH20/enel373/ENEL373/Lab2/M2/project_2/project_2.srcs/sim_1/new/tb_timing_fsm.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'timing_fsm_tb'

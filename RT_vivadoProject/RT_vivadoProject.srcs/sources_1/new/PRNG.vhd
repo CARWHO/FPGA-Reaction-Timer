@@ -25,7 +25,8 @@ begin
         elsif rising_edge(clk) then
             if enable = '1' then
                 -- Calculate feedback bit (XOR of taps)
-                feedback := lfsr_reg(15) xor lfsr_reg(13) xor lfsr_reg(12) xor lfsr_reg(10); -- Taps for 16-bit LFSR: 16,14,13,11 -> indices 15,13,12,10
+                feedback := lfsr_reg(15) xor lfsr_reg(13) xor lfsr_reg(12) xor lfsr_reg(10); 
+                -- ^ Taps for 16-bit LFSR: 16,14,13,11 -> indices 15,13,12,10
                 -- Shift register and insert feedback
                 lfsr_reg <= lfsr_reg(14 downto 0) & feedback;
             end if;

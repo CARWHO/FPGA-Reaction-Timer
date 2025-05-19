@@ -4,7 +4,7 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity timing_fsm is
     Port (
-        clk       : in  std_logic;  -- 100 MHz clock
+        clk       : in  std_logic;  -- System clock (100 MHz)
         btnc      : in  std_logic;  -- Debounced center button input
         btnr      : in  std_logic;  -- Debounced right button input (average)
         btnu      : in  std_logic;  -- Debounced up button input (max)
@@ -277,7 +277,7 @@ begin
         show_final  <= '0';
         error_detected <= '0';
         store_time  <= '0';
-        clear_times <= '0';
+        -- clear_times is driven by process 7
         op_avg      <= '0';
         op_min      <= '0';
         op_max      <= '0';
@@ -345,8 +345,8 @@ begin
                 op_avg      <= '1';  -- Select average operation
                 show_avg    <= '1';  -- Indicate average display
                 use_stats   <= '1';  -- Use ALU result
-                -- Show decimal point on ones digit to indicate average
-                dp_ones     <= '0';
+                -- Decimal points should be off for stats display
+                dp_ones     <= '1';
                 dp_tens     <= '1';
                 dp_third    <= '1';
                 
@@ -355,9 +355,9 @@ begin
                 op_max      <= '1';  -- Select maximum operation
                 show_max    <= '1';  -- Indicate maximum display
                 use_stats   <= '1';  -- Use ALU result
-                -- Show decimal point on tens digit to indicate maximum
+                -- Decimal points should be off for stats display
                 dp_ones     <= '1';
-                dp_tens     <= '0';
+                dp_tens     <= '1';
                 dp_third    <= '1';
                 
             when min_display =>
@@ -365,10 +365,10 @@ begin
                 op_min      <= '1';  -- Select minimum operation
                 show_min    <= '1';  -- Indicate minimum display
                 use_stats   <= '1';  -- Use ALU result
-                -- Show decimal point on third digit to indicate minimum
+                -- Decimal points should be off for stats display
                 dp_ones     <= '1';
                 dp_tens     <= '1';
-                dp_third    <= '0';
+                dp_third    <= '1';
 
             when others =>
                 counter_rst <= '1';

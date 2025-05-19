@@ -17,7 +17,7 @@ entity Hundreds_counter is
 end Hundreds_counter;
 
 architecture Behavioral of Hundreds_counter is
-    signal r_count  : unsigned(3 downto 0) := (others => '0'); -- Renamed internal signal
+    signal r_count  : unsigned(3 downto 0) := (others => '0'); -- Internal counter register
     signal inc_prev : std_logic := '0'; -- Previous state of INC_TICK for edge detection
 begin
 
@@ -28,7 +28,7 @@ begin
             inc_prev <= INC_TICK;
 
             if RESET = '1' then
-                r_count  <= (others => '0'); -- Use r_count
+                r_count  <= (others => '0');
                 ROLLOVER <= '0';
                 inc_prev <= '0'; -- Reset edge detector state as well
             else
@@ -36,17 +36,17 @@ begin
                 ROLLOVER <= '0';
                 -- Check for enable and rising edge of INC_TICK
                 if EN = '1' and INC_TICK = '1' and inc_prev = '0' then
-                    if r_count = 9 then         -- Use r_count
-                        r_count  <= (others => '0'); -- Use r_count
+                    if r_count = 9 then
+                        r_count  <= (others => '0');
                         ROLLOVER <= '1'; -- Rollover asserted for one cycle
                     else
-                        r_count <= r_count + 1; -- Use r_count
+                        r_count <= r_count + 1;
                     end if;
                 end if;
             end if;
         end if;
     end process;
 
-    COUNT <= std_logic_vector(r_count); -- Assign internal signal to output port
+    COUNT <= std_logic_vector(r_count);
 
 end Behavioral;

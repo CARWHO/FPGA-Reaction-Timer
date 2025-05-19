@@ -68,7 +68,7 @@ architecture Behavioral of display_mux is
     signal bcd_mux      : std_logic_vector(3 downto 0);
     signal seg_signal   : std_logic_vector(0 to 7);
 
-    constant dp_const : std_logic := '1';  -- default: decimal point off
+    constant dp_const : std_logic := '1';  -- Default: decimal point segment off ('1' typically means off for common cathode 7-seg)
 
     ----------------------------------------------------------------------------
     -- Anode signal from the 4-digit driver
@@ -77,7 +77,9 @@ architecture Behavioral of display_mux is
 begin
 
     ----------------------------------------------------------------------------
-    -- BCD Multiplexer Logic (was section 12)
+    -- BCD Input Multiplexer
+    -- Selects the appropriate BCD value for the currently active digit based
+    -- on the FSM state (live, snapshot, error, or statistics).
     ----------------------------------------------------------------------------
     process(digit_select, live_thousands, live_hundreds, live_tens, live_ones,
             reset, show_final, error_detected, use_stats,
@@ -140,18 +142,20 @@ begin
     end process;
 
     ----------------------------------------------------------------------------
-    -- BCD to 7-segment Instantiation (was section 13)
+    -- BCD to 7-Segment Decoder Instantiation
+    -- Converts the selected BCD value to 7-segment display signals.
     ----------------------------------------------------------------------------
     bcd_to_7_seg_inst : entity work.bcd_to_7_seg
         port map (
             bcd => bcd_mux,
-            dp  => dp_const,   -- default off; overridden below
+            dp  => dp_const,   -- default off; overridden by process below
             seg => seg_signal
         );
 
     ----------------------------------------------------------------------------
-    -- Decimal Point Override Process (was section 14)
-    -- When multiplexing, only the lower three digits (an(2:0)) show DP during prompt countdown.
+    -- Decimal Point Control
+    -- Overrides the default decimal point signal based on FSM state for prompts.
+    -- Only the lower three digits (an(2:0)) show DPs during the countdown.
     ----------------------------------------------------------------------------
     process(digit_select, dp_sec, dp_hundredms, dp_tensms, seg_signal)
     begin
@@ -182,7 +186,9 @@ begin
     end process;
 
     ----------------------------------------------------------------------------
-    -- Fast Multiplexing Counter (was section 15)
+    -- Display Multiplexing Counter
+    -- Generates the digit_select signal to cycle through the 4 display digits
+    -- at a fast rate (approx 12kHz with 100MHz clock) to create persistence of vision.
     ----------------------------------------------------------------------------
     process(clk)
     begin
@@ -201,7 +207,8 @@ begin
     end process;
 
     ----------------------------------------------------------------------------
-    -- Anode Driver Instantiation (was section 16)
+    -- 4-Digit Anode Driver Instantiation
+    -- Activates the correct anode based on the digit_select signal.
     ----------------------------------------------------------------------------
     anode_driver_inst : entity work.Four_Digit_Anode_driver
         port map (
@@ -210,12 +217,14 @@ begin
         );
 
     ----------------------------------------------------------------------------
-    -- Drive Anodes Output (was section 17)
+    -- Anode Output Assignment
+    -- Connects the internal anode_signal to the top-level AN output.
     ----------------------------------------------------------------------------
     AN <= anode_signal; -- Drive the 4 anode outputs
 
     ----------------------------------------------------------------------------
-    -- Drive 7-Segment Cathodes Output (was section 18)
+    -- Cathode Output Assignments
+    -- Connects the 7-segment pattern to the top-level cathode outputs.
     ----------------------------------------------------------------------------
     CA <= seg_signal(0);
     CB <= seg_signal(1);

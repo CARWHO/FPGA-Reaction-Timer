@@ -47,19 +47,16 @@ architecture Behavioral of reaction_time_storage is
     signal store_trigger_prev : std_logic := '0';
     
 begin
-    -- Reverted to synchronous reset
-    process(clk) 
+    process(clk)
     begin
         if rising_edge(clk) then
-            -- Store previous trigger state for edge detection first
+            -- Store previous trigger state for edge detection
             store_trigger_prev <= store_trigger;
-
-            -- Check reset condition synchronously
+            
             if reset = '1' then
-                -- Synchronous Reset: Clear on next clock edge
+                -- Reset all stored times and count
                 stored_times <= (others => (others => '0'));
                 count <= "00";
-                -- store_trigger_prev is handled above, no need to reset here
             elsif store_trigger = '1' and store_trigger_prev = '0' then
                 -- Rising edge on store_trigger - store new time
                 

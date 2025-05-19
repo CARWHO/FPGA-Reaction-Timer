@@ -12,7 +12,7 @@ entity debounce is
 end debounce;
 
 architecture Behavioral of debounce is
-    -- Adjust DEBOUNCE_COUNT for your clock frequency and desired debounce time.
+    -- Adjust DEBOUNCE_COUNT for clock frequency and desired debounce time.
     -- For example, with a 100 MHz clock and ~10 ms debounce, set count = 1,000,000.
     constant DEBOUNCE_COUNT : natural := 1000000;
     signal counter : natural range 0 to DEBOUNCE_COUNT := 0;

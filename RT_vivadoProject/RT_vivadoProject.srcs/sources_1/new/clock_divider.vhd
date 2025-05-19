@@ -10,10 +10,10 @@ end clock_divider;
 
 architecture Behavioral of clock_divider is
     signal count: std_logic_vector (27 downto 0) := (others => '0');
-    signal dummy: std_logic := '1';
+    signal dummy: std_logic := '1'; -- Internal signal used to generate a toggling clock output
 begin
 
-    SLOWCLK <= dummy;
+    SLOWCLK <= dummy; -- Assign the toggling signal to the output slow clock
     
     process (CLK)
     begin

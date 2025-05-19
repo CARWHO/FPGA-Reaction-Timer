@@ -91,8 +91,7 @@ architecture Structural of Display_Controller_ms is
     signal show_max      : std_logic;
     signal use_stats     : std_logic;
 
-    -- Snapshot registers for final displayed values
-    -- Snapshot registers for final displayed values (now outputs from snapshot_capture)
+    -- Snapshot registers for final displayed values (from snapshot_capture module)
     signal snapshot_thousands : std_logic_vector(3 downto 0);
     signal snapshot_hundreds  : std_logic_vector(3 downto 0);
     signal snapshot_tens      : std_logic_vector(3 downto 0);
@@ -134,7 +133,7 @@ architecture Structural of Display_Controller_ms is
 begin
 
     ----------------------------------------------------------------------------
-    -- 1) Clock Divider for 1 ms
+    -- Component Instantiation: Clock Divider (generates 1ms tick)
     ----------------------------------------------------------------------------
     clock_divider_ms_inst : entity work.clock_divider
         port map (
@@ -144,7 +143,7 @@ begin
         );
         
     ----------------------------------------------------------------------------
-    -- 1.5) PRNG Instantiation
+    -- Component Instantiation: Pseudo-Random Number Generator (PRNG)
     ----------------------------------------------------------------------------
     prng_inst : entity work.PRNG
         port map (
@@ -154,11 +153,11 @@ begin
             random_out => prng_out
         );
         
-    -- Select lower 6 bits for FSM delay control
+    -- Select lower 6 bits from PRNG for FSM's random delay variation
     prng_6bit_to_fsm <= prng_out(5 downto 0); -- Changed to 6 bits
 
     ----------------------------------------------------------------------------
-    -- 2) Button Handler
+    -- Component Instantiation: Button Handler (debounces and edge-detects BTNR,U,D,L)
     ----------------------------------------------------------------------------
     button_handler_inst : entity work.button_handler
         port map (
@@ -178,18 +177,18 @@ begin
         );
     
     ----------------------------------------------------------------------------
-    -- 3) Center Button Debounce
+    -- Component Instantiation: Debouncer (for BTNC)
     ----------------------------------------------------------------------------
     debounce_inst : entity work.debounce
         port map (
             clk   => CLK100MHZ,
-            rst   => '0',
+            rst   => '0', -- Debouncer reset tied low
             noisy => BTNC,
             clean => btnc_db
         );
 
     ----------------------------------------------------------------------------
-    -- 4) Timing FSM
+    -- Component Instantiation: Timing Finite State Machine (FSM)
     ----------------------------------------------------------------------------
     fsm_inst : entity work.timing_fsm
         port map (
@@ -220,12 +219,12 @@ begin
         );
 
     ----------------------------------------------------------------------------
-    -- 5) Reaction Time Storage
+    -- Component Instantiation: Reaction Time Storage
     ----------------------------------------------------------------------------
     storage_inst : entity work.reaction_time_storage
         port map (
             clk            => CLK100MHZ,
-            reset          => clear_times,
+            reset          => clear_times, -- Controlled by FSM (BTNL in stats mode)
             store_trigger  => store_time,
             -- Connect live counter values directly to storage input
             time_thousands => thousands_count,
@@ -248,7 +247,7 @@ begin
         );
         
     ----------------------------------------------------------------------------
-    -- 6) Statistics ALU
+    -- Component Instantiation: Statistics ALU
     ----------------------------------------------------------------------------
     alu_inst : entity work.statistics_alu
         port map (
@@ -269,7 +268,6 @@ begin
             op_avg          => op_avg,
             op_min          => op_min,
             op_max          => op_max,
-            reset           => clear_times, -- Connect clear signal to ALU reset
             result_thousands => stat_thousands,
             result_hundreds  => stat_hundreds,
             result_tens      => stat_tens,
@@ -278,62 +276,64 @@ begin
         );
 
     ----------------------------------------------------------------------------
-    -- 7) Ones Digit Counter (1ms units, clocked by 1kHz slow clock)
+    -- Component Instantiation: BCD Counter (Ones place - 1ms)
     ----------------------------------------------------------------------------
-    ones_counter_inst : entity work.Ones_counter -- Entity name from Millisecond_Counter.vhd
+    ones_counter_inst : entity work.Ones_counter
         port map (
-            CLK_1MS  => slow_clk_ms, -- Use the 1ms clock
+            CLK_1MS  => slow_clk_ms, -- Clocked by the 1ms tick
             RESET    => counter_rst,
-            EN       => counter_en,  -- Use FSM enable
+            EN       => counter_en,
             COUNT    => ones_count,
             ROLLOVER => ones_rollover
         );
 
     ----------------------------------------------------------------------------
-    -- 8) Tens Digit Counter (10ms units, clocked by 100MHz)
+    -- Component Instantiation: BCD Counter (Tens place - 10ms)
     ----------------------------------------------------------------------------
     tens_counter_inst : entity work.Tens_Counter
         port map (
-            CLK       => CLK100MHZ,   -- Use main clock
+            CLK       => CLK100MHZ,   -- Clocked by main system clock
             RESET     => counter_rst,
-            EN        => counter_en,  -- Use FSM enable
-            INC_TICK  => ones_rollover, -- Increment on previous stage rollover
+            EN        => counter_en,
+            INC_TICK  => ones_rollover, -- Increments on rollover from ones_counter
             COUNT     => tens_count,
-            ROLLOVER  => tens_rollover -- Renamed output port
+            ROLLOVER  => tens_rollover
         );
 
     ----------------------------------------------------------------------------
-    -- 9) Hundreds Digit Counter (100ms units, clocked by 100MHz)
+    -- Component Instantiation: BCD Counter (Hundreds place - 100ms)
     ----------------------------------------------------------------------------
     Hundreds_counter_inst : entity work.Hundreds_counter
         port map (
-            CLK       => CLK100MHZ,   -- Use main clock
+            CLK       => CLK100MHZ,   -- Clocked by main system clock
             RESET     => counter_rst,
-            EN        => counter_en,  -- Use FSM enable
-            INC_TICK  => tens_rollover, -- Increment on previous stage rollover
-            COUNT     => hundreds_count, -- Renamed output port
+            EN        => counter_en,
+            INC_TICK  => tens_rollover, -- Increments on rollover from tens_counter
+            COUNT     => hundreds_count,
             ROLLOVER  => hundreds_rollover
         );
 
     ----------------------------------------------------------------------------
-    -- 10) Thousands Digit Counter (1000ms units, clocked by 100MHz)
+    -- Component Instantiation: BCD Counter (Thousands place - 1s)
     ----------------------------------------------------------------------------
-    thousands_counter_inst : entity work.Thousands_Counter -- Entity name from Fourth_Module_Anode_driver.vhd
+    thousands_counter_inst : entity work.Thousands_Counter
         port map (
-            CLK       => CLK100MHZ,   -- Use main clock
+            CLK       => CLK100MHZ,   -- Clocked by main system clock
             RESET     => counter_rst,
-            EN        => counter_en,  -- Use FSM enable
-            INC_TICK  => hundreds_rollover, -- Increment on previous stage rollover
+            EN        => counter_en,
+            INC_TICK  => hundreds_rollover, -- Increments on rollover from hundreds_counter
             COUNT     => thousands_count,
-            ROLLOVER  => open -- Renamed output port (currently unused)
+            ROLLOVER  => open -- Thousands rollover is not currently used
         );
 
-    -- 11) Snapshot Capture Instantiation
+    ----------------------------------------------------------------------------
+    -- Component Instantiation: Snapshot Capture
+    -- Latches the live counter values when triggered by the FSM.
     ----------------------------------------------------------------------------
     snapshot_inst : entity work.snapshot_capture
         port map (
             clk             => CLK100MHZ,
-            snapshot_trigger=> snapshot_trigger,
+            snapshot_trigger=> snapshot_trigger, -- From FSM
             ones_in         => ones_count,
             tens_in         => tens_count,
             hundreds_in     => hundreds_count,
@@ -345,12 +345,13 @@ begin
         );
 
     ----------------------------------------------------------------------------
-    -- 12) Display Multiplexer Instantiation
+    -- Component Instantiation: Display Multiplexer
+    -- Handles multiplexing of digits to the 7-segment display and anode control.
     ----------------------------------------------------------------------------
     display_mux_inst : entity work.display_mux
         port map (
             clk             => CLK100MHZ,
-            reset           => counter_rst, -- Use FSM reset signal
+            reset           => counter_rst, -- Reset from FSM
             show_final      => show_final,
             error_detected  => error_detected,
             use_stats       => use_stats,
@@ -382,10 +383,11 @@ begin
         );
 
     -- Ensure upper anodes are disabled
-    AN(7 downto 4) <= (others => ANODE_OFF);
+    AN(7 downto 4) <= (others => ANODE_OFF); -- Ensure upper 4 anodes (unused) are off
 
     ----------------------------------------------------------------------------
-    -- 13) LED Controller Instantiation
+    -- Component Instantiation: LED Controller
+    -- Manages the status LEDs.
     ----------------------------------------------------------------------------
     led_controller_inst : entity work.led_controller
         port map (
